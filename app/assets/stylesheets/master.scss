@@ -1,15 +1,20 @@
 body {
-	background-image: url(/assets/index1.jpg);
-	background-repeat: no-repeat;
+	background: url(/assets/california-210913_1920.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
-h1 {
+.main {
 	background-color: rgba(0,0,0,.2);
 	padding: 20px;
 	color: white;
 	text-align: center;
-	font-family: "Helvetica Neue", Helvetica, sans-serif;
-	font-weight: 100;
 	font-size: 3em;
+}
+.main h1, h2 {
+	font-weight: 100;
+
 }
