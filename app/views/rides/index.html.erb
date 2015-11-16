@@ -1,4 +1,12 @@
 <div class="main col-xs-10 col-xs-offset-1">
-<h1>Indepence, Control, Freedom</h1>
-<h2>whatever your reason for the love for you ride - share it</h2>
+	<h1>Indepence, Control, Freedom</h1>
+	<h2>whatever your reason for loving your ride - share it</h2>
+	<br />
+	<%= link_to "add yo' ride", "#", :class => "btn ", :data => {:toggle => "modal", :target => "#myModal"} %>
+</div>
+<div class="clearfix"></div>
+<br/>
+<div class="main col-xs-10 col-xs-offset-1">
+	<h3><%= @ride.year %> <%= @ride.make %> <%= @ride.model %><h3>
+	<h4><%= @ride.description %></h4>
 </div>

@@ -2,6 +2,7 @@ Shareyoride::Application.routes.draw do
 
   root 'rides#index'
   
+  resources :rides
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shareyoride</title>
+  <title>Share Yo' Ride</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -12,13 +12,13 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Share Yo' Ride</a>
+      </button> -->
+      <%= link_to "Share Yo' Ride", root_path, :class => "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -43,7 +43,7 @@
   -->
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Show Off Yo' Ride</a></li>
+        <li><%= link_to "What's Yo' Ride", "#", :data => {:toggle => "modal", :target => "#myModal"} %></li>
         <!--
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -61,6 +61,34 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Tell us about your ride</h4>
+      </div>
+      <%= simple_form_for Ride.new do |f| %>
+        <div class="modal-body">
+          <%= f.input :year %>
+          <%= f.input :make %>
+          <%= f.input :model %>
+          <%= f.input :description %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'share it', :class => "btn btn-default" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if flash[:error].present? %>
+  <div class="col-xs-10 col-xs-offset-1 alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
 <%= yield %>
 
 </body>
